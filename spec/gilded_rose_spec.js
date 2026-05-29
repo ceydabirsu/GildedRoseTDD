@@ -6,4 +6,10 @@ describe("Gilded Rose", function() {
     expect(items[0].sell_in).toBe(19);
     expect(items[0].quality).toBe(29);
   });
+  it("For Dexterity Vest, quality decreases by 2 after sell_in is less than 0", function() {
+  items = [ new Item("+5 Dexterity Vest", 0, 30) ];
+  update_quality();
+  expect(items[0].sell_in).toBe(-1);
+  expect(items[0].quality).toBe(28);
+  });
 });

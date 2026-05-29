@@ -6,7 +6,7 @@ describe("Gilded Rose", function() {
     expect(items[0].sell_in).toBe(19);
     expect(items[0].quality).toBe(29);
   });
-  
+
   it("For Dexterity Vest, quality decreases by 2 after sell_in is less than 0", function() {
   items = [ new Item("+5 Dexterity Vest", 0, 30) ];
   update_quality();
@@ -47,5 +47,12 @@ describe("Gilded Rose", function() {
   update_quality();
   expect(items[0].sell_in).toBe(10);
   expect(items[0].quality).toBe(12);
+  });
+
+  it("For Backstage passes, quality increases by 2 if sell_in is 10 or less", function() {
+  items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20) ];
+  update_quality();
+  expect(items[0].sell_in).toBe(9);
+  expect(items[0].quality).toBe(22);
   });
 });
